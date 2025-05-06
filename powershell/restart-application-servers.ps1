@@ -1,4 +1,4 @@
-# Definice proměnných pro první skupinu serverů + kontrola služeb na serverech 52,184 před jejich restartem
+# checking services on servers 52,184 before restart
 $servers1 = @("server51", "server183")
 $logFile1 = "E:\Log\TasksTest\RestartServer51_183.txt"  
 $serversToCheckBefore1 = @("server52", "server184")  
@@ -46,7 +46,7 @@ if ($restartAllowed1) {
 
 Start-Sleep -Seconds 3600
 
-# Definice promměnných + kontrola služeb na serverech 51, 183 před jejich restartem
+# checking services on servers 51,183 before restart
 $serversToCheckBefore2 = @("server51", "server183")  
 $servers2 = @("server52", "server184")  
 $logFile2 = "E:\Log\TasksTest\RestartServer52_184.txt"
