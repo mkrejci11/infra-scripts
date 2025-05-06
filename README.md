@@ -2,7 +2,7 @@
 
 This repository contains a collection of infrastructure scripts for automation, server administration, and system configuration
 
-# Content
+## Content
 
-PowerShell - scripts for Windows platform
-Bash - Linux scripts
+- **PowerShell** - scripts for Windows platform
+- **Bash** - Linux scripts
