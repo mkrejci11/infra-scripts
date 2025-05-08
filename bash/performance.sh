@@ -1,6 +1,6 @@
 #! /bin/bash
 SERVERS=("server1.example.com" "server2.example.com")
-LOG_FILE=performance_check_$(date +%Y%m%d-%H%M%S).log
+LOG_FILE=/var/log/performance_task/performance_check_$(date +%Y%m%d-%H%M%S).log
 
 for SRV in "${SERVERS[@]}";
 do
