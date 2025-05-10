@@ -24,7 +24,7 @@ do
     if ssh -o ConnectTimeout=20 root@"$SRV" 'true'; then
         echo -e "$RED Pripojeno k $SRV $RESET" | tee -a "$LOG_FILE"
 
-        ssh -o ConnectTimeout=20 root@"$SRV" 'bash -s' << 'ENDSSH' | tee -a "$LOG_FILE"
+        ssh -o ConnectTimeout=20 commonservices@"$SRV" 'bash -s' << 'ENDSSH' | tee -a "$LOG_FILE"
         echo "Hostname: $(hostname)"
         echo "Uptime: $(uptime)"
         echo "--- Disk usage: ---"
