@@ -22,7 +22,7 @@ do
     echo "Date: $(date)" | tee -a "$LOG_FILE"
 
     if ssh -o ConnectTimeout=20 commonservices@"$SRV" 'true'; then
-        echo -e "$RED Pripojeno k $SRV $RESET" | tee -a "$LOG_FILE"
+        echo -e "$RED Connected to $SRV $RESET" | tee -a "$LOG_FILE"
 
         ssh -o ConnectTimeout=20 commonservices@"$SRV" 'bash -s' << 'ENDSSH' | tee -a "$LOG_FILE"
         echo "Hostname: $(hostname)"
@@ -37,13 +37,13 @@ do
         systemctl list-units --type=service --state=running
 ENDSSH
 else
-    echo "Nepodarilo se pripojit k $SRV" | tee -a "$LOG_FILE" 
+    echo "Failed to connect to $SRV" | tee -a "$LOG_FILE" 
 fi
 
 
-    echo "Konec kontroly serveru $SRV" | tee -a "$LOG_FILE"
+    echo "Finished checking $SRV" | tee -a "$LOG_FILE"
     echo "" | tee -a "$LOG_FILE"
 
 done
 
-echo "Script dokoncen, vystup ulozen v $LOG_FILE"
+echo "Script completed, output saved to $LOG_FILE"
