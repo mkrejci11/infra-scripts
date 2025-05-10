@@ -6,8 +6,6 @@ mkdir -p /var/log/performance_task #check dir
 LOG_FILE=/var/log/performance_task/performance_check_$(date +%Y%m%d-%H%M%S).log
 
 #colours, echo -e for escape sequence e.g. \ symbol
-GREEN='\e[32m'
-BLUE='\e[34m'
 RED='\e[31m'
 RESET='\e[0m'
 
@@ -20,19 +18,19 @@ do
         echo -e "$RED Pripojeno k $SRV $RESET" | tee -a "$LOG_FILE"
 
         ssh -o ConnectTimeout=20 root@"$SRV" 'bash -s' << 'ENDSSH' | tee -a "$LOG_FILE"
-        echo -e "$GREEN Hostname: $(hostname) $RESET"
-        echo -e "$GREEN Uptime: $(uptime) $RESET"
-        echo -e "$GREEN --- Disk usage: --- $RESET"
+        echo "Hostname: $(hostname)"
+        echo "Uptime: $(uptime)"
+        echo "--- Disk usage: ---"
         df -h
-        echo -e "$GREEN --- Memory usage: --- $RESET"
+        echo "--- Memory usage: ---"
         free -m
-        echo -e "$GREEN --- CPU usage: --- $RESET"
+        echo "--- CPU usage: ---"
         top -b -n1 | head -n 10
-        echo -e "$GREEN --- Running systemd services --- $RESET"
+        echo "--- Running systemd services ---"
         systemctl list-units --type=service --state=running
 ENDSSH
 else
-    echo -e "$RED Nepodarilo se pripojit k $SRV $RESET" | tee -a "$LOG_FILE" 
+    echo "Nepodarilo se pripojit k $SRV" | tee -a "$LOG_FILE" 
 fi
 
 
