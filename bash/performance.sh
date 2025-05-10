@@ -21,7 +21,7 @@ do
     echo "=== Checking $SRV ===" | tee -a "$LOG_FILE"
     echo "Date: $(date)" | tee -a "$LOG_FILE"
 
-    if ssh -o ConnectTimeout=20 root@"$SRV" 'true'; then
+    if ssh -o ConnectTimeout=20 commonservices@"$SRV" 'true'; then
         echo -e "$RED Pripojeno k $SRV $RESET" | tee -a "$LOG_FILE"
 
         ssh -o ConnectTimeout=20 commonservices@"$SRV" 'bash -s' << 'ENDSSH' | tee -a "$LOG_FILE"
