@@ -1,13 +1,20 @@
 #! /bin/bash
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 SERVERS=("server1.example.com" "server2.example.com")
 
 mkdir -p /var/log/performance_task #check dir
 
 LOG_FILE=/var/log/performance_task/performance_check_$(date +%Y%m%d-%H%M%S).log
 
-#colours, echo -e for escape sequence e.g. \ symbol
+#colours, echo -e for escape sequence e.g. \ symbol and colours only if ouput is terminal
+if [ -t 1 ]; then
 RED='\e[31m'
 RESET='\e[0m'
+else
+RED=''
+RESET=''
+fi
 
 for SRV in "${SERVERS[@]}";
 do
