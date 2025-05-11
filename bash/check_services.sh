@@ -2,7 +2,7 @@
 SERVERS=(server1.example.com server2.example.com)
 
 mkdir -p /var/log/check_service
-LOG_FILE=/var/log/check_service_$(date +%Y%m%d-%H%M%S).log
+LOG_FILE=/var/log/check_service/check_service_$(date +%Y%m%d-%H%M%S).log
 
 for SERVER in "${SERVERS[@]}"; do
 echo "--- Checking $SERVER ---" | tee -a "$LOG_FILE"
