@@ -18,7 +18,7 @@ fi
 
 for SRV in "${SERVERS[@]}";
 do
-    echo "=== Checking $SRV ===" | tee -a "$LOG_FILE"
+    echo "--- Checking $SRV ---" | tee -a "$LOG_FILE"
     echo "Date: $(date)" | tee -a "$LOG_FILE"
 
     if ssh -o ConnectTimeout=20 commonservices@"$SRV" 'true'; then
