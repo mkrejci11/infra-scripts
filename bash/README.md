@@ -14,7 +14,7 @@
   - Output is visible in the terminal when run manually.
   - It can also be used in automated environments like `cron`.
 
- ## performance.sh
+ ## check-service.sh
 
  ### What this script does:
 - Connects via SSH to predefined servers.
