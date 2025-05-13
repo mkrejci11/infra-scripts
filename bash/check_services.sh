@@ -8,10 +8,10 @@ for SERVER in "${SERVERS[@]}"; do
 echo "--- Checking $SERVER ---" | tee -a "$LOG_FILE"
 echo "--- Date: $(date) ---" | tee -a "$LOG_FILE"
 
-    if ssh -o ConnectTimeout=20 root@"$SERVER" 'true'; then
+    if ssh -o ConnectTimeout=20 commonservices@"$SERVER" 'true'; then
     echo "Connected to $SERVER" | tee -a "$LOG_FILE"
 
-    ssh -o ConnectTimeout=20 root@"$SERVER" 'bash -s' << 'ENDSSH' | tee -a "$LOG_FILE"
+    ssh -o ConnectTimeout=20 commonservices@"$SERVER" 'bash -s' << 'ENDSSH' | tee -a "$LOG_FILE"
     SERVICES=("nginx" "sshd" "mariadb")
 
     #check service status
