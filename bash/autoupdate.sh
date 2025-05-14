@@ -15,7 +15,6 @@ for SERVER in "${SERVERS[@]}"; do
 
         ssh -o ConnectTimeout=20 commonservices@"$SERVER" 'bash -s' << 'ENDSSH' | tee -a "$LOG_FILE"
 
-        echo "--- Running on $(hostname) ---"
 
 #func to check for updates
 check_updates() {
