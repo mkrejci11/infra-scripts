@@ -19,7 +19,7 @@ for SERVER in "${SERVERS[@]}"; do
 #func to check for updates
 check_updates() {
     echo "$(date) - Checking for updates"
-    dnf check-update > /dev/null 2>&1
+    dnf check-update > 2>&1
     STATUS=$?
 
     if [ $STATUS -eq 100 ]; then #100 = updates available 
@@ -34,7 +34,7 @@ check_updates() {
 #func to install updates
  install_updates() {
     echo "$(date) - Installing all available updates"
-    dnf -y update > /dev/null 2>&1
+    dnf -y update > 2>&1
     STATUS=$?
 
     if [ $STATUS -eq 0 ]; then
@@ -47,7 +47,7 @@ check_updates() {
 #func to install security updates
 install_security_updates() {
     echo "$(date) - Installing security updates"
-    dnf update --security -y > /dev/null 2>&1
+    dnf update --security -y > 2>&1
     STATUS=$?
 
     if [ $STATUS -eq 0 ]; then
