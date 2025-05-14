@@ -63,7 +63,7 @@ install_security_updates() {
 
         install_security_updates
 
-    ENDSSH
+ENDSSH
 
     else
         echo "Cannot connect to $SERVER" | tee -a "$LOG_FILE" 
