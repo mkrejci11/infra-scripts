@@ -45,3 +45,15 @@
   - It can also be used in automated environments like `cron`.
 
 
+## clean-logs.sh
+
+### What this script does:
+
+- Connects via SSH to predefined servers.
+- On each server, it performs:
+  - Deletes all files in /var/log that are older than a specified number of days (default is 30).
+  - Uses find to identify and remove old log files based on modification time.
+- Logs all output to /var/log/clean-log on the central server.
+- Uses tee so that:
+  - Output is visible in the terminal when run manually.
+  - It can also be used in automated environments like cron.
