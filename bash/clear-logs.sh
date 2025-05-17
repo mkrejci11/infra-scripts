@@ -18,7 +18,7 @@ for SERVER in "${SERVERS[@]}"; do
 
         ssh -o ConnectTimeout=20 commonservices@"$SERVER" 'bash -s' << ENDSSH | tee -a "$LOG_FILE"
 
-echo "Deleting log files older than $AGE_DAYS in $LOG_DIR"
+echo "Deleting log files older than $AGE_DAYS days in $LOG_DIR"
 find "$LOG_DIR" -type f -mtime +$AGE_DAYS -exec rm -f {} \;
 echo "Clearing completed"
 
